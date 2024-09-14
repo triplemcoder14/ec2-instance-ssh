@@ -43,5 +43,9 @@ ec2-ssh -user ec2-user -directory /home/ubuntu/keys -region us-west-2
 
 ## **License**
 
+<<<<<<< HEAD
 This tool is released under the MIT License. See **[LICENSE](https://github.com/triplemcoder14/ec2-instance-ssh/blob/main/LICENSE)** for more information.
 >>>>>>> 4b30350 (pass ssh username via tag)
+=======
+This tool is released under the MIT License. See **[LICENSE](https://github.com/triplemcoder14/ec2-instance-ssh/blob/main/LICENSE)** for more information.
+>>>>>>> 38deca0 (directory flag and handle key pairs without .pem prefix)
