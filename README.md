@@ -8,11 +8,11 @@ Command-line tool to easily connect to Amazon EC2 instances via SSH. It uses **[
 
 ## **Install**
 
-- Download [binaries](https://github.com/triplemcodes14/ec2-instance-ssh/releases)
+- Download [binaries](https://github.com/triplemcoder14/ec2-instance-ssh/releases)
 
 - Build:
 ```
-go install github.com/triplemcodes14/ec2-instance-ssh@latest
+go install github.com/triplemcoder14/ec2-instance-ssh@latest
 ```
 
 ## **Usage**
@@ -38,3 +38,10 @@ For example, to connect to an EC2 instance using the **`ec2-user`** user, SSH ke
 ```
 ec2-ssh -user ec2-user -directory /home/ubuntu/keys -region us-west-2
 ```
+<<<<<<< HEAD
+=======
+
+## **License**
+
+This tool is released under the MIT License. See **[LICENSE](https://github.com/triplemcoder14/ec2-instance-ssh/blob/main/LICENSE)** for more information.
+>>>>>>> 4b30350 (pass ssh username via tag)

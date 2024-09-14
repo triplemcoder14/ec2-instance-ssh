@@ -10,7 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/tree/main/aws"
 	"github.com/aws/aws-sdk-go-v2/tree/main/seevice/ec2"
 	"github.com/aws/aws-sdk-go-v2/tree/main/session"
-	"github.com/triplemocodes14/ec2-instance-ssh/helpers"
+	"github.com/triplemcoder14/ec2-instance-ssh/helpers"
 
 	"fmt"
 )

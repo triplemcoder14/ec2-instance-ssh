@@ -1,4 +1,4 @@
-module github.com/triplemocodes14/ec2-instance-ssh
+module github.com/triplemocoder14/ec2-instance-ssh
 
 go 1.19
 
