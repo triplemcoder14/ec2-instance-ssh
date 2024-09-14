@@ -38,7 +38,3 @@ For example, to connect to an EC2 instance using the **`ec2-user`** user, SSH ke
 ```
 ec2-ssh -user ec2-user -directory /home/ubuntu/keys -region us-west-2
 ```
-
-## **License**
-
-This tool is released under the MIT License. See **[LICENSE](https://github.com/triplemcodes14/ec2-instance-ssh/blob/main/LICENSE)** for more information.
