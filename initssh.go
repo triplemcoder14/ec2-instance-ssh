@@ -23,23 +23,56 @@ type Instance struct {
 	KeyName          *string
 }
 
-var (
-	instance  []string
-	err       error
-	user      = flag.String("user", "ubuntu", "Username to use")
-	directory = flag.String("directory", "~/.ssh/", "Directory to find ssh keys")
-	region    = flag.String("region", "us-east-1", "EC2 Region")
-)
+// var (
+// 	instance  []string
+// 	err       error
+// 	user      = flag.String("user", "ubuntu", "Username to use")
+// 	directory = flag.String("directory", "~/.ssh/", "Directory to find ssh keys")
+// 	region    = flag.String("region", "us-east-1", "EC2 Region")
+// )
 
-func GetInstances() ([]*Instance, error) {
-	sess, err := session.NewSession(&aws.Config{
-		Region: region},
-	)
-	if err != nil {
-		return nil, err
+// func GetInstances() ([]*Instance, error) {
+// 	sess, err := session.NewSession(&aws.Config{
+// 		Region: region},
+// 	)
+// 	if err != nil {
+// 		return nil, err
+// 	}
+func main() {
+	// refactored error handler
+	params := Parameters{
+		User:      getEnv("SSH_USER", "ubuntu"),
+		Directory: getEnv("SSH_DIRECTORY", "~/.ssh/"),
+		Region:    getEnv("AWS_REGION", "us-east-1"),
 	}
 
+	// logic is call here with the populated params
+	err := performOperations(params)
+	if err != nil {
+		log.Fatal(err) // Use log.Fatal for better error handling
+	}
+}
+
+//environment variable or fallback to default value
+func getEnv(key, defaultValue string) string {
+	if value, exists := os.LookupEnv(key); exists {
+		return value
+	}
+	return defaultValue
+}
+
+// function to demonstrate logic using the new parameters structure
+func performOperations(params Parameters) error {
+	
+	fmt.Printf("Using User: %s\n", params.User)
+	fmt.Printf("Using Directory: %s\n", params.Directory)
+	fmt.Printf("Using Region: %s\n", params.Region)
+	// placeholder for error handling
+	return nil
+}
+
 	svc := ec2.New(sess)
+
 
 	params := &ec2.DescribeInstancesInput{
 		Filters: []*ec2.Filter{
@@ -80,7 +113,7 @@ func GetInstances() ([]*Instance, error) {
 	}
 
 	return instances, nil
-}
+
 
 func ssh(keyname string, user string, address string) error {
 	var err error
